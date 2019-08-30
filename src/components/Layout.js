@@ -6,7 +6,7 @@ import Footer from "./Footer/Footer"
 import theme from "../styles/theme"
 import GlobalStyles from "../styles/GlobalStyles"
 import Container from "../styles/Container"
-import {UserProvider} from "../context"
+import {UserProvider, NotificationProvider} from "../context"
 import Notification from "./Notification"
 
 const StyledLayout = styled.div`
@@ -22,14 +22,16 @@ const Layout = ({children}) => (
             <GlobalStyles/>
 
             <StyledLayout>
-                <UserProvider>
-                    <Header/>
-                </UserProvider>
+                <NotificationProvider>
+                    <UserProvider>
+                        <Header/>
+                    </UserProvider>
 
-                <Container>{children}</Container>
-                <Footer/>
+                    <Container>{children}</Container>
+                    <Footer/>
 
-                <Notification/>
+                    <Notification/>
+                </NotificationProvider>
             </StyledLayout>
         </>
     </ThemeProvider>
