@@ -7,6 +7,7 @@ import theme from "../styles/theme"
 import GlobalStyles from "../styles/GlobalStyles"
 import Container from "../styles/Container"
 import {UserProvider} from "../context"
+import Notification from "./Notification"
 
 const StyledLayout = styled.div`
     height: 100vh;
@@ -27,6 +28,8 @@ const Layout = ({children}) => (
 
                 <Container>{children}</Container>
                 <Footer/>
+
+                <Notification/>
             </StyledLayout>
         </>
     </ThemeProvider>
