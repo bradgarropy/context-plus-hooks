@@ -6,6 +6,7 @@ import Footer from "./Footer/Footer"
 import theme from "../styles/theme"
 import GlobalStyles from "../styles/GlobalStyles"
 import Container from "../styles/Container"
+import {UserProvider} from "../context"
 
 const StyledLayout = styled.div`
     height: 100vh;
@@ -20,7 +21,10 @@ const Layout = ({children}) => (
             <GlobalStyles/>
 
             <StyledLayout>
-                <Header/>
+                <UserProvider>
+                    <Header/>
+                </UserProvider>
+
                 <Container>{children}</Container>
                 <Footer/>
             </StyledLayout>

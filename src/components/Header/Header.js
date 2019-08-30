@@ -1,5 +1,7 @@
 import React from "react"
+import {useContext} from "react"
 import styled from "styled-components"
+import {UserContext} from "../../context"
 
 const AuthenticationButtons = styled.div`
     display: grid;
@@ -31,18 +33,15 @@ const StyledHeader = styled.div`
 `
 
 const Header = () => {
+    const {user, login, logout} = useContext(UserContext)
+
     return (
         <StyledHeader>
-            <p>HEADER</p>
+            <p>{user ? `${user.firstName} ${user.lastName}` : "HEADER"}</p>
 
             <AuthenticationButtons>
-                <UserButton onClick={() => console.log("login")}>
-                    Login
-                </UserButton>
-
-                <UserButton onClick={() => console.log("logout")}>
-                    Logout
-                </UserButton>
+                <UserButton onClick={login}>Login</UserButton>
+                <UserButton onClick={logout}>Logout</UserButton>
             </AuthenticationButtons>
         </StyledHeader>
     )
