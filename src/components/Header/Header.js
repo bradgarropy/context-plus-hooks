@@ -50,8 +50,11 @@ const Header = () => {
             <p>{user ? `${user.firstName} ${user.lastName}` : "HEADER"}</p>
 
             <AuthenticationButtons>
-                <UserButton onClick={onLogin}>Login</UserButton>
-                <UserButton onClick={onLogout}>Logout</UserButton>
+                {user ? (
+                    <UserButton onClick={onLogout}>Logout</UserButton>
+                ) : (
+                    <UserButton onClick={onLogin}>Login</UserButton>
+                )}
             </AuthenticationButtons>
         </StyledHeader>
     )
