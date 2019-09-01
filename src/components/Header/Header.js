@@ -1,7 +1,7 @@
 import React from "react"
-import {useContext} from "react"
+import {useState} from "react"
 import styled from "styled-components"
-import {UserContext, NotificationContext} from "../../context"
+import brad from "../../user.json"
 
 const AuthenticationButtons = styled.div`
     display: grid;
@@ -33,17 +33,16 @@ const StyledHeader = styled.div`
 `
 
 const Header = () => {
-    const {user, login, logout} = useContext(UserContext)
-    const {setNotification} = useContext(NotificationContext)
+    const [user, setUser] = useState()
 
     const onLogin = () => {
-        login()
-        setNotification("Hey there! 👋🏼")
+        console.log("login")
+        setUser(brad)
     }
 
     const onLogout = () => {
-        logout()
-        setNotification("Goodbye! ☹️️")
+        console.log("logout")
+        setUser()
     }
 
     return (

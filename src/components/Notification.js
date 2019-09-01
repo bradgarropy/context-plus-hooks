@@ -1,7 +1,6 @@
 import React from "react"
-import {useContext, useEffect} from "react"
+import {useEffect, useState} from "react"
 import styled from "styled-components"
-import {NotificationContext} from "../context"
 
 const NotificationWrapper = styled.div`
     position: fixed;
@@ -11,6 +10,7 @@ const NotificationWrapper = styled.div`
     padding: 1.5rem 2.5rem;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+    box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.8);
 
     p {
         margin: 0;
@@ -18,8 +18,7 @@ const NotificationWrapper = styled.div`
 `
 
 const Notification = () => {
-    const {notification, setNotification} = useContext(NotificationContext)
-    console.log(notification)
+    const [notification, setNotification] = useState("Hey there! 👋🏼")
 
     useEffect(() => {
         const id = setTimeout(() => setNotification(), 3000)
