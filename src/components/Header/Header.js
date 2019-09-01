@@ -1,7 +1,7 @@
 import React from "react"
-import {useState} from "react"
+import {useContext} from "react"
 import styled from "styled-components"
-import brad from "../../user.json"
+import {UserContext} from "../../context/user"
 
 const AuthenticationButtons = styled.div`
     display: grid;
@@ -33,16 +33,14 @@ const StyledHeader = styled.div`
 `
 
 const Header = () => {
-    const [user, setUser] = useState()
+    const {user, login, logout} = useContext(UserContext)
 
     const onLogin = () => {
-        console.log("login")
-        setUser(brad)
+        login()
     }
 
     const onLogout = () => {
-        console.log("logout")
-        setUser()
+        logout()
     }
 
     return (
