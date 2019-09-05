@@ -7,7 +7,11 @@ import theme from "../styles/theme"
 import GlobalStyles from "../styles/GlobalStyles"
 import Container from "../styles/Container"
 import Notification from "./Notification"
-import {UserProvider, NotificationProvider} from "../context"
+import {
+    UserProvider,
+    NotificationProvider,
+    UserNotificationProvider,
+} from "../context"
 
 const StyledLayout = styled.div`
     height: 100vh;
@@ -19,18 +23,20 @@ const StyledLayout = styled.div`
 const Layout = ({children}) => (
     <ThemeProvider theme={theme}>
         <>
-            <GlobalStyles/>
+            <GlobalStyles />
 
             <StyledLayout>
                 <NotificationProvider>
                     <UserProvider>
-                        <Header/>
+                        <UserNotificationProvider>
+                            <Header />
+
+                            <Container>{children}</Container>
+                            <Footer />
+
+                            <Notification />
+                        </UserNotificationProvider>
                     </UserProvider>
-
-                    <Container>{children}</Container>
-                    <Footer/>
-
-                    <Notification/>
                 </NotificationProvider>
             </StyledLayout>
         </>

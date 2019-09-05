@@ -1,7 +1,7 @@
 import React from "react"
 import {useContext} from "react"
 import styled from "styled-components"
-import {UserContext, NotificationContext} from "../../context"
+import {UserContext, UserNotificationContext} from "../../context"
 
 const AuthenticationButtons = styled.div`
     display: grid;
@@ -34,7 +34,7 @@ const StyledHeader = styled.div`
 
 const Header = () => {
     const {user, login, logout} = useContext(UserContext)
-    const {setNotification} = useContext(NotificationContext)
+    const {setNotification} = useContext(UserNotificationContext)
 
     const onLogin = () => {
         login()
